@@ -20,24 +20,44 @@ export class Weather {
   }
 
   weatherTabCreator() {
-    const mainContainer = document.createElement("div");
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('titleContainer')
+
+    const temperatureContainer = document.createElement('div');
+    temperatureContainer.classList.add('temperatureContainer')
+
     const secondaryContainer = document.createElement("div");
+    secondaryContainer.classList.add("secondaryContainer");
+
     const title = document.createElement("h2");
+    title.classList.add("title");
+    const titleIcon = document.createElement('i');
+    titleIcon.classList.add('bi','bi-building');
+
+
     const temperature = document.createElement("p");
+    temperature.classList.add("temperature");
+    const temperatureIcon = document.createElement('i');
+    temperatureIcon.classList.add('bi','bi-thermometer-half');
+
     const pressure = document.createElement("p");
+    pressure.classList.add("secondaryItem");
     const humidity = document.createElement("p");
+    pressure.classList.add("secondaryItem");
     const wind = document.createElement("p");
+    pressure.classList.add("secondaryItem");
 
-    mainContainer.classList.add('mainContainer')
-
-    title.textContent = `City: ${this.cityName}`;
+    title.textContent = `${this.cityName}`;
     temperature.innerHTML = `${this.toCelsius()} &#8451`;
     pressure.textContent = `Pressure: ${this.tommhg()} mmHg`;
     humidity.textContent = `Humidity: ${this.humidity} %`;
     wind.textContent = `Wind: ${this.wind} km/h`;
 
+    titleContainer.append(titleIcon, title)
+    temperatureContainer.append(temperatureIcon, temperature)
     secondaryContainer.append(pressure, humidity, wind);
-    mainContainer.append(title, temperature, secondaryContainer);
-    document.querySelector("body").appendChild(mainContainer);
+    document
+      .querySelector(".mainContainer")
+      .append(titleContainer, temperatureContainer, secondaryContainer);
   }
 }

@@ -1,16 +1,48 @@
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Weather App</title>
-</head>
-<body>
-  <h1>Weather App</h1>
-  <form novalidate>
-    <label for="city">City</label>
-    <input type="text" id="city" name="city" required minlenght='3' maxlength="20">
-    <button id="submitBtn" type="submit">Search</button>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../src/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../src/favicon/favicon-16x16.png"
+    />
+  </head>
+  <body>
+    <div class="contentContainer">
+      <div class="header">
+        <img src="../src/favicon/android-chrome-192x192.png" alt="appLogo" />
+        <h1>Weather App</h1>
+      </div>
+
+      <div class="form">
+        <form novalidate>
+          <label for="city">City</label>
+          <i id="clear" class="bi bi-x-circle"></i>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            required
+            minlenght="3"
+            maxlength="20"
+            placeholder="Enter a city"
+          />
+          <button id="submitBtn" type="submit">Search</button>
+        </form>
+        <div id="errorContainer">
+          City not found!
+        </div>
+      </div>
+      <div class="mainContainer"></div>
+    </div>
+  </body>
 </html>
